@@ -1,0 +1,56 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	         int points=0;
+                  int choice=0;
+		Scanner sc= new Scanner(System.in);
+               do
+              {
+		System.out.println("Enter the starting number for your range: ");
+		int x=sc.nextInt();
+		System.out.println("Enter the Ending number of your range: ");
+		int y= sc.nextInt();
+		Random random= new Random();
+		int num= random.nextInt(y-x+1)+x;
+        
+		for(int i=0;i<5;i++)
+		{
+            System.out.println("Guess a number from " +x+ " to "+ y);
+            int n= sc.nextInt();
+            if(num==n)
+            {
+                System.out.println("YOU HAVE GUESSED THE RIGHT ANSWER!!!!");
+                points+=100;
+                break;
+             }
+            else if(num>n)
+            {
+                System.out.println("The number you guessed is too low. Try guessing a larger number");
+                points+=10;
+              }
+            else{
+                System.out.println("The number you guessed is too high. Try guessing a smaller number");
+                points+=10;
+             }
+		}
+		if( points >=100)
+		   System.out.println("YOU HAVE SCORED 100 POINTS!!!");
+		else
+		   System.out.println("You have Scored "+ points+ " better luck next time !!");
+            System.out.println("Do you wish to play again? y or n");
+            sc.nextLine();
+            String c=sc.nextLine();
+            if(c.equals("y"))
+           {
+           choice++;}
+           else
+            {
+               choice = 0;
+            }
+           }while(choice>0);
+           sc.close();
+
+	}
+}
+
