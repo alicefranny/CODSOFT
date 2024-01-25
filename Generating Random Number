@@ -1,0 +1,14 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter the starting number for your range: ");
+		double x=sc.nextDouble();
+		System.out.println("Enter the Ending number of your range: ");
+		double y= sc.nextDouble();
+		Random random= new Random();
+		double num= (random.nextDouble()* (y-x+1))+x;
+		System.out.println("The Random number is: " +num);
+	}
+}
