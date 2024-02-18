@@ -1,56 +1,38 @@
-import java.util.*;
-public class RandomNumberGame
-{
-	public static void main(String[] args) {
-	         int points=0;
-                  int choice=0;
-		Scanner sc= new Scanner(System.in);
-               do
-              {
-		System.out.println("Enter the starting number for your range: ");
-		int x=sc.nextInt();
-		System.out.println("Enter the Ending number of your range: ");
-		int y= sc.nextInt();
-		Random random= new Random();
-		int num= random.nextInt(y-x+1)+x;
-        
-		for(int i=0;i<5;i++)
-		{
-            System.out.println("Guess a number from " +x+ " to "+ y);
-            int n= sc.nextInt();
-            if(num==n)
-            {
-                System.out.println("YOU HAVE GUESSED THE RIGHT ANSWER!!!!");
-                points+=100;
-                break;
-             }
-            else if(num>n)
-            {
-                System.out.println("The number you guessed is too low. Try guessing a larger number");
-                points+=10;
-              }
-            else{
-                System.out.println("The number you guessed is too high. Try guessing a smaller number");
-                points+=10;
-             }
-		}
-		if( points >=100)
-		   System.out.println("YOU HAVE SCORED 100 POINTS!!!");
-		else
-		   System.out.println("You have Scored "+ points+ " better luck next time !!");
-            System.out.println("Do you wish to play again? y or n");
-            sc.nextLine();
-            String c=sc.nextLine();
-            if(c.equals("y"))
-           {
-           choice++;}
-           else
-            {
-               choice = 0;
-            }
-           }while(choice>0);
-           sc.close();
+package Codsoft;
 
+import java.util.Scanner;
+
+public class GradeSystem {
+	public static void main(String args[]) {
+		System.out.println("\t\t  Grading System \t\t\n");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the marks of each subject in the following order");
+		System.out.println("Maths: ");
+		float math = sc.nextFloat();
+		System.out.println("Science: ");
+		float sci = sc.nextFloat();
+		System.out.println("Social Science: ");
+		float soc = sc.nextFloat();
+		System.out.println("Language: ");
+		float lan = sc.nextFloat();
+		System.out.println("English: ");
+		float eng = sc.nextFloat();
+		float avg = (math + sci + soc + lan + eng) / 5;
+		if (math > 50 && sci > 50 && soc > 50 && lan > 50 && eng > 50) {
+			if (avg >= 90)
+				System.out.println("\t\t You have recieved O grade!!\t\t");
+			else if (avg >= 80 && avg < 90)
+				System.out.println("\t\t You have recieved A+ grade!!\t\t");
+			else if (avg >= 70 && avg < 80)
+				System.out.println("\t\t You have recieved A grade!!\t\t");
+			else if (avg >= 60 && avg < 70)
+				System.out.println("\t\t You have recieved B grade!!\t\t");
+			else
+				System.out.println("\t\t You don't have enough credits to pass the exam. Better luck next Time");
+		} else
+			System.out.println("You don't have enough credits to pass the Exams");
 	}
+
 }
+
 
