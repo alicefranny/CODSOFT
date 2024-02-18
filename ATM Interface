@@ -1,83 +1,82 @@
+package Codsoft;
+
 import java.util.*;
-interface ATM{
-void Withdrawing(int amount);
-void Depositting(int amount);
-int BankBalance();
-}
-class implementer implements ATM{
-int amt=200000;
 
-@Override
-public int BankBalance()
-{
-    System.out.println("Your current Balance: "+amt);
-    return amt;
+interface ATM {
+	void Withdrawing(int amount);
+
+	void Depositting(int amount);
+
+	int BankBalance();
 }
 
-@Override
-public void Depositting(int amount)
-{
-    amt+=amount;
-     System.out.println("Depositting Completed");
-     System.out.println("Your new amount is: " + amt);
+class implementer implements ATM {
+	int amt = 200000;
+
+	@Override
+	public int BankBalance() {
+		System.out.println("Your current Balance: " + amt);
+		return amt;
+	}
+
+	@Override
+	public void Depositting(int amount) {
+		amt += amount;
+		System.out.println("Depositting Completed");
+		System.out.println("Your new amount is: " + amt);
+	}
+
+	@Override
+	public void Withdrawing(int amount) {
+		if (amount > 0 && amt >= amount) {
+			amt -= amount;
+			System.out.println("Withdrawl Completed");
+			System.out.println("Your new amount is: " + amt);
+		} else
+			System.out.println("The account does not enough money to withdraw the amout");
+	}
 }
 
-@Override
-public void Withdrawing(int amount)
-{
-    if(amount>0 && amt>=amount)
-   {
-      amt-=amount;
-     System.out.println("Withdrawl Completed");
-     System.out.println("Your new amount is: "+amt);
-    }
-    else
-    System.out.println("The account does not enough money to withdraw the amout");
-  }
-}
- class UserAccount extends  implementer
-{
-    
-    void Balance()
-       {   int amt1= BankBalance();
-            System.out.println("The Amount is "+amt1);
-       }
-}
-class BankInterface
-{
-public static void main(String args[])
-{
-String ch;
-UserAccount u= new UserAccount();
-Scanner sc = new Scanner(System.in);
-do{
-System.out.println("Enter your Choice:\n1. Withdraw\n2. Deposit\n3. Check Bank Balance\n4. Exit");
-int c=sc.nextInt();
+class UserAccount extends implementer {
 
-
-switch(c)
-     {
-case 1: 
-                   System.out.println("Enter the amount you want to withdraw: ");
-                   int a= sc.nextInt();
-                    u.Withdrawing (a);
-                    break;
-case 2:
-                  System.out.println("Enter the amount you want to deposit: ");
-                  int b=sc.nextInt();
-                  u.Depositting(b);
-                  break;
-case 3:
-                  u.BankBalance();
-                  break;
-case 4: 
-                   System.out.println("--------------------Exit--------------------------");
-                   break;
-
+	void Balance() {
+		int amt1 = BankBalance();
+		System.out.println("The Amount is " + amt1);
+	}
 }
-System.out.println("Do you want to use Bank Interface again? y|n");
- ch= sc.next();
-sc.nextLine();
-    }while(ch.equals("y"));
-}
+
+public class BankInterface {
+	public static void main(String args[]) {
+		String ch;
+		UserAccount u = new UserAccount();
+		Scanner sc = new Scanner(System.in);
+		do {
+			System.out.println("Enter your Choice:\n1. Withdraw\n2. Deposit\n3. Check Bank Balance\n4. Exit");
+			int c = sc.nextInt();
+
+			switch (c) {
+			case 1:
+				System.out.println("Enter the amount you want to withdraw: ");
+				int a = sc.nextInt();
+				u.Withdrawing(a);
+				break;
+			case 2:
+				System.out.println("Enter the amount you want to deposit: ");
+				int b = sc.nextInt();
+				u.Depositting(b);
+				break;
+			case 3:
+				u.BankBalance();
+				break;
+			case 4:
+				System.out.println("--------------------Exit--------------------------");
+				break;
+
+			}
+			System.out.println("Do you want to use Bank Interface again? y|n");
+			ch = sc.next();
+			sc.nextLine();
+		} while (ch.equals("y"));
+	}
+
 }
