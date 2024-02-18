@@ -1,39 +1,36 @@
-import java.util.Scanner;
-class GradeSystem
-{
-   public static void main(String args[])
-   {
-       System.out.println("\t\t  Grading System \t\t\n");
-       Scanner sc= new Scanner(System.in);
-       System.out.println("Enter the marks of each subject in the following order");
-       System.out.println("Maths: ");
-       float math= sc.nextFloat();
-       System.out.println("Science: ");
-      float sci= sc.nextFloat();
-        System.out.println("Social Science: ");
-        float soc= sc.nextFloat();
-       System.out.println("Language: ");
-        float lan= sc.nextFloat();
-        System.out.println("English: ");
-        float eng= sc.nextFloat();
-         float avg= (math+sci+soc+lan+eng)/5;
-        if(math>50 && sci>50 && soc>50 && lan>50 && eng>50)
-       { if(avg>=90)
-               System.out.println("\t\t You have recieved O grade!!\t\t");
-        else if(avg>=80 && avg<90)
-                 System.out.println("\t\t You have recieved A+ grade!!\t\t");
-        else if(avg>=70 && avg<80)
-                 System.out.println("\t\t You have recieved A grade!!\t\t");
-        else if(avg>=60 && avg<70)
-                 System.out.println("\t\t You have recieved B grade!!\t\t");
-       else
-                System.out.println("\t\t You don't have enough credits to pass the exam. Better luck next Time");
-        }
-         else
-                  System.out.println("You don't have enough credits to pass the Exams");
-        }
-}
+package Codsoft;
 
- 
-        
-     
+import java.util.Scanner;
+
+public class GradeSystem {
+	public static void main(String args[]) {
+		System.out.println("\t\t  Grading System \t\t\n");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the marks of each subject in the following order");
+		System.out.println("Maths: ");
+		float math = sc.nextFloat();
+		System.out.println("Science: ");
+		float sci = sc.nextFloat();
+		System.out.println("Social Science: ");
+		float soc = sc.nextFloat();
+		System.out.println("Language: ");
+		float lan = sc.nextFloat();
+		System.out.println("English: ");
+		float eng = sc.nextFloat();
+		float avg = (math + sci + soc + lan + eng) / 5;
+		if (math > 50 && sci > 50 && soc > 50 && lan > 50 && eng > 50) {
+			if (avg >= 90)
+				System.out.println("\t\t You have recieved O grade!!\t\t");
+			else if (avg >= 80 && avg < 90)
+				System.out.println("\t\t You have recieved A+ grade!!\t\t");
+			else if (avg >= 70 && avg < 80)
+				System.out.println("\t\t You have recieved A grade!!\t\t");
+			else if (avg >= 60 && avg < 70)
+				System.out.println("\t\t You have recieved B grade!!\t\t");
+			else
+				System.out.println("\t\t You don't have enough credits to pass the exam. Better luck next Time");
+		} else
+			System.out.println("You don't have enough credits to pass the Exams");
+	}
+
+}
